@@ -211,17 +211,20 @@
       }
   
       const diff = target.diff(now, 'second');
-      if (diff <= 0) {
-        clearInterval(intervalId);
-        $countdown.html('');
-        $btn.text('Let\'s celebrate! ♡')
-    	.prop('disabled', false)
-    	.off('click') // Remove any existing click handler
-    	.on('click', function () {
-        	window.location.href = 'https://my-g27cbqmbm-au290s-projects.vercel.app/'; // Replace with your actual URL
-    	});
-        return;
-      }
+      const secretURL = atob("aHR0cHM6Ly9jb3VyYWdlb3VzLWthc2hhdGEtMmJhYjVmLm5ldGxpZnkuYXBwLw");
+
+if (diff <= 0) {
+  clearInterval(intervalId);
+  $countdown.html('');
+  $btn.text('Let\'s celebrate! ♡')
+    .prop('disabled', false)
+    .off('click')
+    .on('click', function () {
+      window.location.href = secretURL;
+    });
+  return;
+}
+
   
       const days    = Math.floor(diff / (3600 * 24));
       const hours   = Math.floor((diff % (3600 * 24)) / 3600);
